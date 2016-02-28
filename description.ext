@@ -1,0 +1,96 @@
+﻿author = "Capps";
+briefingName = "Operation Round Robin v0.10 Beta";
+onLoadMission = "Public Beta";
+onLoadName = "Operation Round Robin v0.10";
+overviewText = "Hold out as long as you can";
+//overviewPicture = "Logo.jpg";
+//overviewTextLocked = "";
+
+allowFunctionsLog = 0;  // 1=enable
+enableDebugConsole = 0; // 1=host
+
+respawn = 1;
+respawnDelay = 10;
+respawnVehicleDelay = 120;
+respawnOnStart = -1;
+respawnTemplates[] = {"MenuPosition"};
+
+corpseManagerMode = 1;
+corpseLimit = 4;
+
+wreckManagerMode = 1;
+wreckLimit = 1;
+
+disabledAI = 1;
+aiKills = 1;
+saving = 0;
+
+class Header
+{
+gameType = Coop;
+minPlayers = 1;
+maxPlayers = 16;
+};
+
+class Params
+{
+	class Daytime
+	{
+		title = "Time";
+		values[] = {16,7,0};
+		texts[] = {"16:00","07:00","24:00"};
+		default = 7;
+	};
+	
+	class waitTime
+	{
+		title = "Wait Time Between Rounds";
+		values[] = {15,30,45,60};
+		texts[] = {"15 Secs","30 Secs", "45 Secs", "60 sec"};
+		default = 30;
+	};
+	
+	class StartTime
+	{
+		title = "Time Until Mission Starts";
+		values[] = {2,5,10};
+		texts[] = {"2 mins","5 mins", "10 mins"};
+		default = 5;
+	};
+};
+
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "GAME OVER";
+		subtitle = "Mission failed";
+		description = "All Players were killed!";
+		pictureBackground = "\a3\Ui_f\data\gui\cfg\Debriefing\debriefingbackground_co.paa";
+		picture = "b_inf";
+		pictureColor[] = {0.6,0.0,0.0,1};
+	};
+
+	class End2
+	{
+		title = "GAME OVER";
+		subtitle = "Mission accomplished";
+		description = "The Pilot was successfully returned to base!";
+		pictureBackground = "\a3\Ui_f\data\gui\cfg\Debriefing\debriefingbackground_co.paa";
+		picture = "b_inf";
+		pictureColor[] = {0.0,0.3,0.6,1};
+	};
+};
+
+class CfgFunctions
+{
+	class RC
+	{
+		class Client
+		{			
+			class startMatch {file = "fn_start_match.sqf";};
+		};
+	};
+};
+
+
